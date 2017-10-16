@@ -1,0 +1,39 @@
+body {
+	padding-top: 70px;
+	font-family: "微软雅黑";
+
+}
+
+.copyright-logo {
+	margin-top: -5px;
+}
+
+.login-farme {
+	margin: auto;
+	width: 420px;
+	height: 400px;
+	box-shadow: 0px 0px 10px 5px #aaa;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.login-btn {
+	width: 100%;
+	margin-top: 30px;
+}
+
+.login-title {
+	text-align: center;
+}
+
+.login-information {
+	padding: 10px 30px;
+	margin-top: 30px;
+	border-top: 1px solid #aaa;
+}
+.user-form-group{
+	margin-top: 20px;
+}

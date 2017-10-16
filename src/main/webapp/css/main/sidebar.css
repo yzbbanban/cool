@@ -1,0 +1,79 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+.accordion {
+ 	width: 100%;
+ 	max-width: 150px;
+ 	background: #444359;
+ 	list-style: none;
+ 	margin-top: 40px;
+ }
+
+.accordion .link {
+	cursor: pointer;
+	display: block;
+	padding: 15px 15px 15px 18.5px;
+	color: #d9d9d9;
+	font-size: 14px;
+	font-weight: 700;
+	border-bottom: 1px solid #CCC;
+	position: relative;
+	-webkit-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+}
+
+.accordion li:last-child .link {
+	border-bottom: 0;
+}
+
+
+
+/**
+ * Submenu
+ -----------------------------*/
+ .submenu {
+ 	display: none;
+ 	background: #444359;
+ 	font-size: 14px;
+ 	list-style: none;
+ 	padding: 0;
+ }
+
+ .submenu li {
+ 	border-bottom: 1px solid #4b4a5e;
+ }
+
+ .submenu a {
+ 	display: block;
+ 	text-decoration: none;
+ 	color: #d9d9d9;
+ 	padding: 12px 12px 12px 18.5px;
+ 	-webkit-transition: all 0.25s ease;
+ 	-o-transition: all 0.25s ease;
+ 	transition: all 0.25s ease;
+ }
+
+ .submenu a:hover {
+ 	background: #b63b4d;
+ 	color: #FFF;
+ }
+ 
+ .top-list{
+ 	right: 0;
+ 	list-style: none;
+ 	position: fixed;
+ }
+ 
+.top-list li{
+	
+	float: right;
+	margin-right: 30px;
+	
+}
+
+.top-list li a{
+	text-decoration: none;
+	color: #d9d9d9;
+}

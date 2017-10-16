@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.riti.rfid.dao.RfidOrderDAO">
+	<insert id="addRfidOrder" parameterType="com.riti.rfid.entity.RfidOrder">
+		INSERT INTO rfidOrder (
+		rfidUserId,
+		rfidOrderNum,
+		rfidIdName,
+		rfidOrderCreateTime,
+		rfidOrderStockType
+		) VALUES (
+		#{rfidUserId},
+		#{rfidOrderNum},
+		#{idName},
+		#{rfidOrderCreateTime},
+		#{stockType}
+		)
+	</insert>
+
+	<select id="findRfidOrderById" parameterType="com.riti.rfid.entity.QueryRfidParams"
+		resultMap="rfidOrder">
+		SELECT
+		rfidUserId as rfidUserId,
+		rfidIdName as
+		idName,
+		rfidOrderNum as
+		rfidOrderNum,
+		rfidOrderCreateTime as
+		rfidOrderCreateTime,
+		rfidOrderStockType as stockType
+		FROM
+		rfidOrder
+		<where>
+					<!-- 此处为联合查询 -->
+			<if test="stockType==0">
+				and rfidOrderStockType = #{stockType}
+			</if>
+			<if test="true">
+				and
+				rfidUserId=#{uid}
+				and
+				rfidOrderCreateTime BETWEEN
+				#{startTime} and #{endTime}
+				and
+				rfidOrderCreateTime
+				in 
+				(select MAX(rfidOrderCreateTime) from rfidOrder group by rfidUserId, rfidIdName, rfidOrderStockType) 
+				ORDER BY
+				rfidOrderCreateTime DESC
+				LIMIT
+				#{startPage}, #{endPage}
+			</if>
+		</where>
+
+	</select>
+	<resultMap type="com.riti.rfid.entity.RfidOrder" id="rfidOrder">
+		<association property="rfidUser" javaType="com.riti.rfid.entity.RfidUser"
+			select="findRfidUser" column="rfidUserId">
+		</association>
+	</resultMap>
+	<select id="findRfidUser" parameterType="string"
+		resultType="com.riti.rfid.entity.RfidUser">
+		SELECT
+		rfidUserId as rfidUserId,
+		cool_user_id as userId,
+		rfidUserName as rfidUserName,
+		rfidUserLocation as
+		rfidUserLocation,
+		rfidUserCreatTime as
+		rfidUserCreatTime
+		FROM
+		rfidUser
+		WHERE
+		rfidUserId=#{rfidUserId}
+	</select>
+
+	<select id="findRfidOrderByNum" parameterType="com.riti.rfid.entity.QueryRfidParams"
+		resultMap="rfidOrder">
+		SELECT
+		rfidUserId as rfidUserId,
+		rfidIdName as idName,
+		rfidOrderNum as
+		rfidOrderNum,
+		rfidOrderCreateTime as
+		rfidOrderCreateTime,
+		rfidOrderStockType as stockType
+		FROM
+		rfidOrder
+		<where>
+			<if test="stockType==0">
+				and rfidOrderStockType = #{stockType}
+			</if>
+			<if test="true">
+				and
+				rfidOrderNum=#{uid}
+				and
+				rfidOrderCreateTime BETWEEN
+				#{startTime} and
+				#{endTime}
+				and
+				rfidOrderCreateTime
+				in 
+				(select MAX(rfidOrderCreateTime) from rfidOrder group by rfidUserId, rfidIdName, rfidOrderStockType) 
+				ORDER BY
+				rfidOrderCreateTime DESC
+				LIMIT
+				#{startPage},
+				#{endPage}
+			</if>
+		</where>
+
+	</select>
+
+
+
+	<select id="getRfidCount" parameterType="com.riti.rfid.entity.QueryRfidParams"
+		resultType="int">
+		SELECT
+		count(*)
+		FROM
+		rfidOrder
+		<where>
+			<if test="type==0">
+				rfidUserId = #{uid}
+			</if>
+			<if test="type==1">
+				and rfidOrderNum = #{uid}
+			</if>
+			<if test="type==2">
+				and rfidIdName = #{uid}
+			</if>
+			<if test="stockType==0">
+				and rfidOrderStockType = #{stockType}
+			</if>
+			<if test="true">
+				and
+				rfidOrderCreateTime
+				in 
+				(select MAX(rfidOrderCreateTime) from rfidOrder group by rfidUserId, rfidIdName, rfidOrderStockType) 
+				and
+				rfidOrderCreateTime BETWEEN
+				#{startTime} and
+				#{endTime};
+			</if>
+		</where>
+	</select>
+
+
+
+	<select id="findRfidOrderByRfidName" parameterType="com.riti.rfid.entity.QueryRfidParams"
+		resultMap="rfidStockOrder">
+		SELECT
+		rfidUserId as rfidUserId,
+		rfidIdName as idName,
+		rfidOrderNum as
+		rfidOrderNum,
+		rfidOrderCreateTime as
+		rfidOrderCreateTime,
+		rfidOrderStockType as stockType
+		FROM
+		rfidOrder
+		<where>
+			<if test="stockType==0">
+				and rfidOrderStockType = #{stockType}
+			</if>
+			
+			<if test="true">
+				and
+				rfidIdName
+				LIKE
+				CONCAT('%',#{uid},'%' )
+				and
+				rfidOrderCreateTime BETWEEN
+				#{startTime} and #{endTime}
+				ORDER BY
+				rfidOrderCreateTime DESC
+				LIMIT
+				#{startPage}, #{endPage}
+			</if>
+		</where>
+
+	</select>
+
+	<resultMap type="com.riti.rfid.entity.RfidOrder" id="rfidStockOrder">
+		<association property="rfidUser" javaType="com.riti.rfid.entity.RfidUser"
+			select="findRfidUser" column="rfidUserId">
+		</association>
+	</resultMap>
+	
+	
+</mapper>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.riti.cool.dao.UserDAO">
+	<select id="findUserByName" parameterType="string"
+		resultType="com.riti.cool.entity.User">
+		SELECT
+			cool_user_id as id,
+			cool_commpany_id as companyId,
+			cool_user_name as name,
+			cool_user_password as password,
+			cool_user_token
+			as token,
+			cool_user_nick as nick,
+			cool_user_gender as gender,
+			cool_user_email as email,
+			cool_create_time as createTime,
+			cool_user_level as userLevel
+		FROM
+			cool_user
+		WHERE
+			cool_user_name=#{name}
+	</select>
+	<insert id="addUser" parameterType="com.riti.cool.entity.User">
+		INSERT INTO cool_user (
+		cool_user_id,
+		cool_commpany_id,
+		cool_user_name,
+		cool_user_password,
+		cool_user_token,
+		cool_user_nick,
+		cool_user_gender,
+		cool_user_email,
+		cool_create_time,
+		cool_user_level
+		) VALUES (
+		#{id},
+		#{companyId},
+		#{name},
+		#{password},
+		#{token},
+		#{nick},
+		#{gender},
+		#{email},
+		#{createTime},
+		#{userLevel}
+		)
+	</insert>
+
+	<select id="findUserById" parameterType="string"
+		resultType="com.riti.cool.entity.User">
+		SELECT
+			cool_user_id as id,
+			cool_commpany_id as companyId,
+			cool_user_name as name,
+			cool_user_password as password,
+			cool_user_token
+			as token,
+			cool_user_nick as nick,
+			cool_user_gender as gender,
+			cool_user_email as email,
+			cool_create_time as createTime,
+			cool_user_level as userLevel
+		FROM
+			cool_user
+		WHERE
+			cool_user_id = #{userId}
+	</select>
+
+	<select id="findUserByCompany" parameterType="com.riti.cool.entity.User"
+		resultType="com.riti.cool.entity.User">
+		SELECT
+			cool_user_id as id,
+			cool_commpany_id as companyId,
+			cool_user_name as name,
+			cool_user_password as password,
+			cool_user_token
+			as token,
+			cool_user_nick as nick,
+			cool_user_gender as gender,
+			cool_user_email as email,
+			cool_create_time as createTime,
+			cool_user_level as userLevel
+		FROM
+			cool_user
+		WHERE
+			cool_commpany_id =#{companyId} 
+		AND 
+			cool_user_level=#{userLevel}
+	</select>
+	
+	<select id="findUserByCompanyId" parameterType="com.riti.cool.entity.User"
+		resultType="com.riti.cool.entity.User">
+		SELECT
+			cool_user_id as id,
+			cool_commpany_id as companyId,
+			cool_user_name as name,
+			cool_user_password as password,
+			cool_user_token
+			as token,
+			cool_user_nick as nick,
+			cool_user_gender as gender,
+			cool_user_email as email,
+			cool_create_time as createTime,
+			cool_user_level as userLevel
+		FROM
+			cool_user
+		WHERE
+			cool_commpany_id =#{companyId} 
+		AND
+			cool_user_level &gt;#{userLevel}
+	</select>
+
+	<update id="updateUserCompany" parameterType="com.riti.cool.entity.User">
+		UPDATE 
+			cool_user
+		SET
+			cool_commpany_id=#{companyId}
+		WHERE
+			cool_user_id = #{id}
+	</update>
+
+	<update id="updateUserCompanyLevel" parameterType="com.riti.cool.entity.User">
+		UPDATE
+			cool_user
+		SET
+			cool_commpany_id=#{companyId},
+			cool_user_level=#{userLevel}
+		WHERE
+			cool_user_id = #{id}
+
+	</update>
+
+
+</mapper>

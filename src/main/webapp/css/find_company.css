@@ -1,0 +1,52 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.show {
+	width: auto;
+	height: 35px;
+	margin: 20px auto;
+	position: relative;
+}
+.show span{
+	float: left;
+	padding-left: 13.3%;
+	margin-top: 5px;
+}
+
+#company_text {
+	width: 60%;
+	height: 35px;
+	text-indent: 10px;
+
+}
+
+
+.company_search {
+	margin-left: 25%;
+	width: 60%;
+	border: 1px solid #ddd;
+	display: none;
+	position: absolute;
+	top: 37px;
+}
+
+.company_search ul li {
+	background-color: #FFF;
+	width: auto;
+	height: 30px;
+	text-indent: 10px;
+	line-height: 30px;
+	list-style: none;
+}
+
+.company_search ul li a {
+	color: #000;
+	text-decoration: none;
+	display: block;
+}
+
+.company_search ul li a:hover {
+	background: #ddd;
+}

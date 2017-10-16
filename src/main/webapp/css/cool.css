@@ -1,0 +1,190 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.header {
+	background-color: #333333;
+	height: 50px;
+	width: auto;
+}
+
+.left_header,.mid_header,.mid_header ul {
+	float: left;
+}
+
+.chart {
+	width: 100%;
+	height: 450px;
+	top: 50px;
+	right: 0;
+	left: 0;
+	margin: auto;
+}
+
+.mid_header {
+	width: 500px;
+	height: 30px;
+}
+
+.mid_header ul li {
+	float: left;
+	list-style: none;
+	margin-right: 30px;
+	margin-top: 12px;
+}
+
+.mid_header a {
+	text-decoration: none;
+	color: #FFF;
+}
+
+.mid_header a:hover {
+	color: #BACACA;
+}
+
+.left_header {
+	width: 50px;
+	height: 30px;
+	color: #FFF;
+	font-family: "仿宋";
+	margin: 10px 50px 0 10px;
+	font-size: 25px;
+}
+
+.right_header select {
+	background: transparent;
+	border: none;
+	height: 30px;
+	margin-right: 50px;
+	margin-top: 10px;
+	width: 180px;
+	color: #fff;
+	float: right;
+}
+
+.right_header_img {
+	width: 30px;
+	height: 30px;
+	margin-top: 10px;
+	margin-right: 50px;
+	float: right;
+}
+
+.condition {
+	width: auto;
+	height: 40px;
+	background-color: #F0F0F0;
+}
+
+.condition form {
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+.contect {
+	width: auto;
+	height: auto;
+	background-color: #E4E4E4;
+}
+
+.contect table {
+	width: 80%;
+	margin: auto;
+	font-family: verdana, arial, sans-serif;
+	font-size: 11px;
+	color: #333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+
+#contect_title {
+	border-style: none;
+	border-radius: 10px 10px 0 0;
+	background-color: #666666;
+}
+
+.pic {
+	float: right;
+	margin-left: 50px;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	background-color: #F2F2F2;
+	width: auto;
+	height: 20px;
+}
+
+.footer p {
+	font-size: small;
+}
+
+.footer_tel {
+	float: left;
+	padding-left: 50px;
+}
+
+.footer_co {
+	float: right;
+	padding-right: 50px;
+}
+
+.ui-timepicker-div .ui-widget-header {
+	margin-bottom: 8px;
+}
+
+.ui-timepicker-div dl {
+	text-align: left;
+}
+
+.ui-timepicker-div dl dt {
+	float: left;
+	clear: left;
+	padding: 0 0 0 5px;
+}
+
+.ui-timepicker-div dl dd {
+	margin: 0 10px 10px 45%;
+}
+
+.ui-timepicker-div td {
+	font-size: 90%;
+}
+
+.ui-tpicker-grid-label {
+	background: none;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.ui-timepicker-rtl {
+	direction: rtl;
+}
+
+.ui-timepicker-rtl dl {
+	text-align: right;
+	padding: 0 5px 0 0;
+}
+
+.ui-timepicker-rtl dl dt {
+	float: right;
+	clear: right;
+}
+
+.ui-timepicker-rtl dl dd {
+	margin: 0 45% 10px 10px;
+}
+
+.navbar-default .brand {
+	float: left;
+	padding: 15px 39px;
+	background-color: #fff;
+}
+
+.search-select {
+	padding: 10px 15px 15px 0px;
+}

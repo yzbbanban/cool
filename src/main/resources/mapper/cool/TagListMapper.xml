@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.riti.cool.dao.TagListDAO">
+	<insert id="addDeviceList" parameterType="com.riti.cool.entity.DeviceList">
+		INSERT INTO
+		cool_tag_list 
+		(
+		cool_tag_list_id ,
+		cool_user_id,
+		uid
+		)
+		VALUES (
+		#{id},
+		#{userId},
+		#{uid}
+		)
+
+	</insert>
+
+	<select id="getDeviceList" parameterType="string"
+		resultType="com.riti.cool.entity.DeviceList">
+		SELECT
+		cool_tag_list_id as id,
+		cool_user_id as userId ,
+		uid as uid
+		FROM
+		cool_tag_list
+		WHERE
+		cool_user_id=#{userId}
+	</select>
+
+	<select id="getDevice" parameterType="com.riti.cool.entity.DeviceList"
+		resultType="com.riti.cool.entity.DeviceList">
+		SELECT
+		cool_tag_list_id as id,
+		cool_user_id as userId,
+		uid as uid
+		FROM
+		cool_tag_list
+		WHERE
+		uid=#{uid}
+		AND
+		cool_user_id=#{userId}
+	</select>
+
+
+</mapper>

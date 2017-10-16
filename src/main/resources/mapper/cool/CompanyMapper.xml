@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.riti.cool.dao.CompanyDAO">
+	<insert id="addCompany" parameterType="com.riti.cool.entity.Company">
+		INSERT INTO cool_company (
+		cool_company_id ,
+		cool_company_name ,
+		cool_company_email ,
+		cool_company_address ,
+		cool_company_tel
+		) VALUES (
+		#{id},
+		#{name},
+		#{email},
+		#{address},
+		#{tel}
+		)
+	</insert>
+	<select id="findCompanyByName" parameterType="string"
+		resultType="com.riti.cool.entity.Company">
+		SELECT
+		cool_company_id as id,
+		cool_company_name as name,
+		cool_company_email as email,
+		cool_company_address as address,
+		cool_company_tel as tel
+		FROM
+		cool_company
+		WHERE cool_company_name=#{name}
+	</select>
+
+	<select id="findCompanyByBlurName" parameterType="string"
+		resultType="com.riti.cool.entity.Company">
+		SELECT
+		cool_company_id as id,
+		cool_company_name as name,
+		cool_company_email as email,
+		cool_company_address as address,
+		cool_company_tel as tel
+		FROM
+		cool_company
+		WHERE cool_company_name
+		LIKE
+		CONCAT('%',#{name},'%' )
+	</select>
+
+	<select id="findCompanyById" parameterType="string"
+		resultType="com.riti.cool.entity.Company">
+		SELECT
+		cool_company_id as id,
+		cool_company_name as name,
+		cool_company_email as email,
+		cool_company_address as address,
+		cool_company_tel as tel
+		FROM
+		cool_company
+		WHERE cool_company_id=#{id}
+	</select>
+</mapper>

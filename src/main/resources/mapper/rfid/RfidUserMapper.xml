@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.riti.rfid.dao.RfidUserDAO">
+	<insert id="addRfidUser" parameterType="com.riti.rfid.entity.RfidUser">
+		INSERT INTO rfidUser (
+		rfidUserId,
+		cool_user_id,
+		rfidUserName,
+		rfidUserLocation,
+		rfidUserCreatTime
+		) VALUES (
+		#{rfidUserId},
+		#{userId},
+		#{rfidUserName},
+		#{rfidUserLocation},
+		#{rfidUserCreatTime}
+		)
+	</insert>
+
+
+	<select id="findRfidUserById" parameterType="string" resultMap="getCountResult">
+		SELECT
+		rfidUserId as rfidUserId,
+		cool_user_id as userId,
+		rfidUserName as
+		rfidUserName,
+		rfidUserLocation as
+		rfidUserLocation,
+		rfidUserCreatTime as
+		rfidUserCreatTime
+		FROM
+		rfidUser
+		WHERE
+		cool_user_id=#{id} ORDER BY
+		rfidUserCreatTime DESC
+	</select>
+	<resultMap type="com.riti.rfid.entity.RfidUser" id="getCountResult">
+		<id column="rfidUserId" property="rfidUserId"/>
+		<association property="rfidOrderCount" javaType="int"
+			select="findRfidOrderCount" column="rfidUserId">
+		</association>
+	</resultMap>
+	<select id="findRfidOrderCount" parameterType="string" resultType="int">
+		SELECT
+		count(*)
+		FROM
+		rfidOrderRecent
+		<where>
+			rfidUserId = #{rfidUserId}
+			<if test="true">
+				<![CDATA[ and rfidOrderStockType = 0 ]]> 
+			</if>
+		</where>
+	</select>
+
+
+	<select id="findRfidUserByName" parameterType="string"
+		resultType="com.riti.rfid.entity.RfidUser">
+		SELECT
+		rfidUserId as rfidUserId,
+		cool_user_id as userId,
+		rfidUserName as rfidUserName,
+		rfidUserLocation as
+		rfidUserLocation,
+		rfidUserCreatTime as
+		rfidUserCreatTime
+		FROM
+		rfidUser
+		WHERE
+		rfidUserName=#{rfidUserName}
+	</select>
+
+	<update id="updateRfidUser" parameterType="com.riti.rfid.entity.RfidUser">
+		UPDATE
+		rfidUser
+		SET
+		rfidUserName=#{rfidUserName},
+		rfidUserLocation=#{rfidUserLocation},
+		rfidUserCreatTime=#{rfidUserCreatTime}
+		WHERE
+		rfidUserId = #{rfidUserId}
+	</update>
+
+	<delete id="deleteRfidUser" parameterType="string">
+		DELETE
+		FROM
+		rfidUser
+		WHERE
+		rfidUserId = #{id}
+	</delete>
+
+
+</mapper>

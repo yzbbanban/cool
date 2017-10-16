@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.riti.cool.dao.TempDAO">
+	<insert id="save" parameterType="com.riti.cool.entity.Temperature">
+		INSERT INTO 
+		NFC_Temperature_Data (
+		Uid,
+		GoodsName,
+		DateRecordTime,
+		MaxTemperature,
+		MinTemperature,
+		Temperature,
+		TempStatus,
+		Hum,
+		MaxHum,
+		MinHum,
+		HumStatus
+		)VALUES(
+		#{Uid},
+		#{GoodsName},
+		#{DateTime},
+		#{MaxTemperature},
+		#{MinTemperature},
+		#{Temperature},
+		#{Status},
+		#{Hum},
+		#{MaxHum},
+		#{MinHum},
+		#{HumStatus})
+	</insert>
+	
+	<!-- id:要求唯一 resultType：返回的数据的类型 parameterType：参数类型 -->
+	<select id="findAll" parameterType="com.riti.cool.entity.QueryTempParams"  resultMap="tempMap">
+		SELECT DISTINCT  * FROM NFC_Temperature_Data 
+		WHERE Uid=#{uid} 
+		AND 
+		DateRecordTime BETWEEN #{startTime} AND #{endTime} ORDER BY DateRecordTime DESC
+	</select>
+	
+	
+	<!-- id:要求唯一 resultType：返回的数据的类型 parameterType：参数类型 -->
+	<select id="findAllByPage" parameterType="com.riti.cool.entity.QueryTempParams"  resultMap="tempMap">
+		SELECT DISTINCT  * FROM NFC_Temperature_Data 
+		WHERE Uid=#{uid} 
+		AND 
+		DateRecordTime BETWEEN #{startTime} AND #{endTime} ORDER BY DateRecordTime DESC
+		LIMIT #{startPage}, #{endPage} 
+	</select>
+	
+	
+	
+	<select id="findById" parameterType="int" resultMap="tempMap">
+		SELECT * FROM NFC_Temperature_Data WHERE Uid=#{Uid}
+	</select>
+
+	<select id="findFirstTemp" parameterType="int" resultMap="tempMap">
+		SELECT * FROM NFC_Temperature_Data WHERE Uid=#{id} ORDER BY DateRecordTime DESC LIMIT 1 
+	</select>
+	
+	<select id="getCount" parameterType="com.riti.cool.entity.QueryTempParams" resultType="int">
+		SELECT 
+		count(*) 
+		FROM 
+		NFC_Temperature_Data
+		WHERE 
+		Uid = #{uid} 
+		AND
+		DateRecordTime BETWEEN #{startTime} AND #{endTime}
+	</select>
+
+	<update id="modify" parameterType="com.riti.cool.entity.Temperature">
+	</update>
+
+	<delete id="delete" parameterType="int">
+		DELETE FROM NFC_Temperature_Data
+		WHERE Uid=#{Uid}
+	</delete>
+	
+	<!-- 处理表的字段名与实体类的属性名的对应关系 -->
+	<resultMap type="com.riti.cool.entity.Temperature" id="tempMap">
+		<result property="Status" column="TempStatus" />
+		<result property="DateTime" column="DateRecordTime" />
+	</resultMap>
+
+</mapper>

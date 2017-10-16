@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<title>链通天下</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- VENDOR CSS -->
+<link rel="stylesheet"
+	href="assets/vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="assets/vendor/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
+<!-- MAIN CSS -->
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="css/cool.css">
+
+<script src="js/user.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/cookie_util.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/logout.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/userNick.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/userMessage.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/getMessage.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/userList.js" type="text/javascript" charset="utf-8"></script>
+
+<!--时间选择器-->
+<link rel="stylesheet" type="text/css"
+	href="css/dateTimePicker/jquery-ui.css" />
+<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript"
+	src="js/dateTimePicker/jquery-1.11.0.min.js"></script>
+<script type="text/javascript"
+	src="js/dateTimePicker/jquery-ui-1.10.4.custom.min.js"></script>
+<script type="text/javascript"
+	src="js/dateTimePicker/jquery.ui.datepicker-zh-CN.js"></script>
+<script type="text/javascript"
+	src="js/dateTimePicker/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript"
+	src="js/dateTimePicker/jquery-ui-timepicker-zh-CN.js"></script>
+
+<!-- 分页 -->
+<link href="css/pagingCss/paging.css" rel="stylesheet" type="text/css">
+<script src="js/pagingJs/paging.js"></script>
+<script src="js/pagingRfidOrder.js"></script>
+
+<link href="dist/pagination.css" rel="stylesheet" type="text/css">
+<script src="dist/pagination.js"></script>
+<script src="js/RfidPageLoad.js" type="text/javascript" charset="utf-8"></script>
+
+
+<!-- 获取仓库列表 -->
+<script src="js/getRfidUser.js" type="text/javascript" charset="utf-8"></script>
+<!-- 获取订单列表 -->
+<script src="js/getRfidOrder.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- 资产最新情况 -->
+<script src="js/getRfidOrderNewData.js" type="text/javascript"
+	charset="utf-8"></script>
+<!-- 客户资产查询 -->
+<script src="js/getRfidOrderStock.js" type="text/javascript"
+	charset="utf-8"></script>
+<!-- 按钮显示界面-->
+<script src="js/OrderfuncSelect.js" type="text/javascript"
+	charset="utf-8"></script>
+</head>
+
+<body>
+	<!-- WRAPPER -->
+	<div id="wrapper">
+		<!-- NAVBAR -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="brand">
+				<a href="index.html"><img src="img/homelogo.png"
+					alt="Klorofil Logo" class="img-responsive logo"></a>
+			</div>
+			<div class="container-fluid">
+				<div class="navbar-btn">
+					<button type="button" class="btn-toggle-fullwidth">
+						<i class="lnr lnr-arrow-left-circle"></i>
+					</button>
+				</div>
+				<div id="navbar-menu">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown"><a href="#"
+							class="dropdown-toggle icon-menu" data-toggle="dropdown"> <i
+								class="lnr lnr-alarm"></i> <span id="message_count"
+								class="badge bg-danger">0</span>
+						</a>
+							<ul id="message_detail_ul" class="dropdown-menu notifications">
+								<li id="message_detail_li"><a href="#"
+									class="notification-item"><span class="dot bg-success"></span>无消息</a></li>
+							</ul></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown"><img src="assets/img/user.png"
+								class="img-circle" alt="Avatar"> <span id="user_nick_name">.</span>
+								<i class="icon-submenu lnr lnr-chevron-down"></i></a>
+							<ul class="dropdown-menu">
+								<li><a href="setting.html"><i class="lnr lnr-cog"
+										id="user_set"></i> <span>设置</span></a></li>
+								<li><a id="log_out" href="#"><i class="lnr lnr-exit"></i>
+										<span>登出</span></a></li>
+							</ul></li>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- END NAVBAR -->
+		<!-- LEFT SIDEBAR -->
+		<div id="sidebar-nav" class="sidebar">
+			<div class="sidebar-scroll">
+				<nav>
+					<ul class="nav">
+						<li><a href="home.html" class=""><i class="lnr lnr-home"></i>
+								<span>主页</span></a></li>
+						<!-- <li><a href="#subPages" data-toggle="collapse"
+							class="collapsed"><i class="lnr lnr-user"></i> <span>用户列表</span>
+								<i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPages" class="collapse ">
+								<ul id="sub_users" class="nav">
+									<li id="user_li"><a href="page-profile.html" class=""></a></li>
+								</ul>
+							</div></li>-->
+						<li><a href="rfid.html" class="active"><i
+								class="lnr lnr-database"></i> <span>RFID库存查询</span></a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<!-- END LEFT SIDEBAR -->
+		<!-- MAIN -->
+		<div class="main">
+			<!-- MAIN CONTENT -->
+			<div class="main-content">
+				<div class="container-fluid">
+					<h3 class="page-title">RFID库存查询</h3>
+					<!-- 选择 -->
+					<div class="search-select">
+						<button type="button" id="search_history" class="btn btn-danger">历史数据查询</button>
+						<button type="button" id="search_user" class="btn btn-info">资产最新情况</button>
+						<button type="button" id="search_order" class="btn btn-info">客户资产查询</button>
+					</div>
+					<!-- 历史查询 -->
+					<div id="historyOrderSearch">
+						<h4>历史查询</h4>
+						<div class="form-inline">
+
+							<span id="order_Select">
+								<div class="form-group">
+									<label>客户：</label>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-6">
+										<select id="rfidSelect_uid" class="form-control">
+											<option></option>
+										</select>
+									</div>
+								</div>
+							</span> <input type="checkbox" id="check_order"> 单号查询
+							<div class="form-group">
+
+								<div class="col-sm-6">
+									<input class="form-control" type="text" id="rfidOrderNum"
+										placeholder="无客户请输入单号查询">
+								</div>
+							</div>
+							<input type="checkbox" id="check_rfid_name"> 吨桶查询
+							<div class="form-group">
+
+								<div class="col-sm-6">
+									<input class="form-control" type="text" id="rfidIdName"
+										placeholder="输入吨桶ID号">
+								</div>
+							</div>
+							<!-- 
+							<div class="form-group">
+								<label>出入库</label>
+							</div>
+							
+							<div class="form-group">
+								<div class="col-sm-6">
+									<select id="rfidSelect_Stock" class="form-control">
+										<option value="0">入库</option>
+										<option value="1">出库</option>
+									</select>
+								</div>
+							</div> -->
+
+
+						</div>
+						<div class="form-inline search-select">
+							<div class="form-group">
+								<div class="col-sm-6">
+									<input id="startTime" name="act_start_time" type="text"
+										class="text-box form-control" value="" placeholder="开始时间"
+										title="开始时间" readonly="readonly" style="cursor:pointer;" />
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-sm-6">
+									<input id="endTime" name="act_stop_time" type="text"
+										class="text-box form-control" value="" placeholder="结束时间"
+										title="结束时间" readonly="readonly" style="cursor:pointer;" />
+								</div>
+							</div>
+
+							<button id="searchRfidData" class="btn btn-primary">查询</button>
+						</div>
+						<div id="my_chart" class="row">
+							<div class="col-sm-12">
+								<table class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th>序号</th>
+											<th>吨桶ID号</th>
+											<th>状态</th>
+											<th>时间</th>
+											<th>客户</th>
+											<th>操作员</th>
+											<th>单号</th>
+										</tr>
+									</thead>
+									<tbody id="rfid_tb">
+										<!--填写表格内容-->
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!--分页-->
+						<div id="page" class="page_div"></div>
+					</div>
+					<!-- 根据用户订单显示客户  资产最新情况-->
+					<div id="orderSearchUser" style="height:100%;  display: none">
+						<h4>吨桶数据</h4>
+						<div class="form-inline">
+							总数： <input id="orderSum" class="form-control" type="text"
+								style="text-align: center;" placeholder="0" disabled>
+							在途：<input id="waySum" style="text-align: center;"
+								class="form-control" type="text" placeholder="0" disabled>
+							在库：<input id="stockSum" style="text-align: center;"
+								class="form-control" type="text" placeholder="0" disabled>
+
+						</div>
+						<div class="form-inline search-select">
+							<div class="form-group">
+								<label>客户：</label>
+							</div>
+							<select class="form-control" id="rfidNewSelect_uid">
+								<option></option>
+							</select>
+							<button id="getNewOrderDataWithUser" class="btn btn-primary">查询</button>
+						</div>
+						<div class="row">
+							<div class="col-sm-12">
+								<table class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th>序号</th>
+											<th>吨桶号</th>
+											<th>操作员</th>
+											<th>系统更新时间</th>
+										</tr>
+									</thead>
+									<tbody id="rfidNewTb">
+										<!--填写表格内容-->
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!--分页-->
+						<div id="pageNew" class="page_div"></div>
+						<!--分页-->
+
+					</div>
+					<!-- 根据用户订单显示客户  资产最新情况 end-->
+					<!-- 根据客户查询订单 客户资产查询-->
+					<div id="userSearchOrder" style="height:300px;  display: none">
+						<h4>资产查询</h4>
+						<div class="form-inline">
+							<div class="form-group">
+								<label>客户：</label>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-6">
+									<select id="rfidStockSelect_uid" class="form-control">
+										<option></option>
+									</select>
+								</div>
+							</div>
+							<button id="searchRfidStockData" class="btn btn-primary">查询</button>
+						</div>
+						<div class="row col-md-12 col-xs-12 search-select">
+							<table class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<th>序号</th>
+										<th>吨桶ID号</th>
+										<th>时间</th>
+										<th>操作员</th>
+										<th>单号</th>
+										<th>停留时间</th>
+									</tr>
+								</thead>
+								<tbody id="rfid_stock_tb">
+									<!--填写表格内容
+										<tr>
+											<td>序号</td>
+											<td>吨桶ID号</td>
+											<td>时间</td>
+											<td>操作员</td>
+											<td>单号</td>
+											<td>停留时间</td>
+										</tr>
+									-->
+								</tbody>
+							</table>
+						</div>
+						<!-- 分页 -->
+						<div id="pageStock" class="page_div"></div>
+					</div>
+					<!-- 根据客户查询订单 客户资产查询end-->
+
+					<!-- 消息弹出框 -->
+					<div class="modal fade" id="getMessageDetail" tabindex="-2"
+						role="dialog" aria-labelledby="myModalLabel">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									<h4 class="modal-title">消息详情:</h4>
+								</div>
+								<div class="modal-body">
+									<h4>申请人：</h4>
+									<h5 class="modal-title" id="message_user"></h5>
+								</div>
+								<div class="modal-body">
+									<h4>申请时间：</h4>
+									<h5 class="modal-title" id="message_time"></h5>
+								</div>
+								<div class="modal-body">
+									<h4>消息详情：</h4>
+									<h5 class="modal-title" id="message_label"></h5>
+								</div>
+
+								<div class="modal-footer">
+									<button type="button" id="send_message_close"
+										class="btn btn-default" data-dismiss="modal">关闭</button>
+									<button type="button" id="send_message_btn"
+										class="btn btn-primary">确认邀请加入公司</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END MAIN CONTENT -->
+		<!-- END MAIN -->
+
+
+		<!-- 消息弹出框 -->
+		<div class="modal fade" id="getMessageDetail" tabindex="-2"
+			role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title">消息详情:</h4>
+					</div>
+					<div class="modal-body">
+						<h4 class="modal-title" id="message_label">消息详情</h4>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" id="send_message_close"
+							class="btn btn-default" data-dismiss="modal">关闭</button>
+						<button type="button" id="send_message_btn"
+							class="btn btn-primary">确认邀请加入公司</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END WRAPPER -->
+	<!-- Javascript
+	<script src="assets/vendor/jquery/jquery.min.js"></script> -->
+	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="assets/scripts/klorofil-common.js"></script>
+
+	<script type="text/javascript">
+		$("input[name='act_start_time'],input[name='act_stop_time']")
+				.datetimepicker();
+	</script>
+</body>
+
+</html>

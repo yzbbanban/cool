@@ -1,0 +1,384 @@
+<!doctype html>
+<html>
+
+<head>
+<title>链通天下</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+
+
+<!-- VENDOR CSS -->
+<link rel="stylesheet"
+	href="assets/vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="assets/vendor/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
+<!-- MAIN CSS -->
+<link rel="stylesheet" href="assets/css/main.css">
+<!-- CONTECT CSS -->
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/home.css">
+
+<link rel="stylesheet" href="css/find_company.css">
+<link rel="stylesheet" type="text/css" href="css/cool.css" />
+<script src="js/jquery-1.10.2.min.js" type="text/javascript"
+	charset="utf-8"></script>
+<script src="js/user.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/path.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/company.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/cookie_util.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/logout.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/userNick.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/userMessage.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/find_company.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/getMessage.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/userList.js" type="text/javascript" charset="utf-8"></script>
+
+<style type="text/css">
+.aui-login-input {
+	margin-left: 20%;
+	border-bottom: none;
+}
+
+.aui-login-input button {
+	width: 50px;
+	height: 40px;
+}
+
+#creat_company {
+	margin-left: 50%;
+	margin-top: 50%;
+	width: 200px;
+}
+</style>
+
+<style type="text/css">
+.list-unstyled {
+	margin-left: 30%;
+}
+
+.list-unstyled li {
+	margin-top: 30px;
+	width: 60%;
+}
+
+.list-unstyled input {
+	float: right;
+	margin-right: 30%;
+}
+
+.btn-company {
+	margin-top: 80px;
+	margin-left: 30%;
+}
+
+.btn-company button {
+	margin-right: 17%;
+}
+
+.btn-relieve {
+	margin-top: 80px;
+	margin-left: 40%;
+}
+</style>
+</head>
+
+<body>
+	<!-- WRAPPER -->
+	<div id="wrapper">
+		<!-- NAVBAR -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="brand">
+				<a href="index.html"><img src="img/homelogo.png" alt="eloction"
+					class="img-responsive logo"></a>
+			</div>
+			<div class="container-fluid">
+				<div class="navbar-btn">
+					<button type="button" class="btn-toggle-fullwidth">
+						<i class="lnr lnr-arrow-left-circle"></i>
+					</button>
+				</div>
+				<div id="navbar-menu">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown"><a href="#"
+							class="dropdown-toggle icon-menu" data-toggle="dropdown"> <i
+								class="lnr lnr-alarm"></i> <span id="message_count"
+								class="badge bg-danger">0</span>
+						</a>
+							<ul id="message_detail_ul" class="dropdown-menu notifications">
+								<li id="message_detail_li"><a href="#"
+									class="notification-item"><span class="dot bg-success"></span>无消息</a></li>
+								<!-- <li><a href="#" class="notification-item"><span
+										class="dot bg-danger"></span>b</a></li>
+								<li><a href="#" class="notification-item"><span
+										class="dot bg-success"></span>c</a></li>
+								<li><a href="#" class="notification-item"><span
+										class="dot bg-warning"></span>d</a></li>
+								<li><a href="#" class="notification-item"><span
+										class="dot bg-success"></span>e</a></li>
+								<li><a href="#" class="more">更多信息</a></li>-->
+							</ul></li>
+
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown"><img src="assets/img/user.png"
+								class="img-circle" alt="Avatar"> <span id="user_nick_name">.</span>
+								<i class="icon-submenu lnr lnr-chevron-down"></i></a>
+							<ul class="dropdown-menu">
+
+								<li><a href="setting.html"><i class="lnr lnr-cog"
+										id="user_set"></i> <span>设置</span></a></li>
+								<li><a id="log_out" href="#"><i class="lnr lnr-exit"></i>
+										<span>登出</span></a></li>
+							</ul></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- END NAVBAR -->
+		<!-- LEFT SIDEBAR -->
+		<div id="sidebar-nav" class="sidebar">
+			<div class="sidebar-scroll">
+				<nav>
+					<ul class="nav">
+						<li><a href="home.html" class="collapsed"><i
+								class="lnr lnr-home"></i> <span>主页</span></a></li>
+
+						<!-- <li><a href="#subPages" data-toggle="collapse"
+							class="collapsed"><i class="lnr lnr-user"></i> <span>用户列表</span>
+								<i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPages" class="collapse ">
+								<ul id="sub_users" class="nav">
+									<li id="user_li"><a href="page-profile.html" class=""></a></li>
+								</ul>
+							</div></li> -->
+						<li><a href="rfid.html" class=""><i
+								class="lnr lnr-database"></i> <span>RFID库存查询</span></a></li>
+
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<!-- END LEFT SIDEBAR -->
+		<!-- MAIN -->
+		<div class="main">
+			<!-- MAIN CONTENT -->
+			<div class="main-content">
+				<div class="container-fluid">
+					<h3 class="page-title">用户设置</h3>
+
+					<div>
+						<ul class="list-unstyled">
+							<h3>账号信息：</h3>
+							</li>
+							<li>昵称：<span id="setting_user_name"></span><input
+								class="btn btn-default" type="button" value="修改">
+							</li>
+							<li>密码：<span>*******</span><input class="btn btn-default"
+								type="button" value="修改">
+							</li>
+						</ul>
+					</div>
+					<!--管理者设置-->
+					<div id="company_detail">
+						<ul class="list-unstyled">
+							<li>公司名称：<span id="company_name">1</span>
+							</li>
+							<li>公司邮箱：<span id="company_email">2</span>
+							</li>
+							<li>公司地址：<span id="company_address">3</span>
+							</li>
+							<li>公司电话：<span id="company_tel">4</span>
+							</li>
+						</ul>
+					</div>
+					<!-- Button trigger modal -->
+
+					<!--普通用户设置-->
+					<div class="btn-company">
+						<button type="button" id="create_company_button"
+							class="btn btn-primary" data-toggle="modal"
+							data-target="#create_company">创建公司</button>
+						<button type="button" id="apply_company_button"
+							class="btn btn-primary" data-toggle="modal"
+							data-target="#apply_company">申请加入公司</button>
+					</div>
+					<!--已绑定公司用户-->
+					<div class="btn-relieve">
+						<button type="button" id="log_off_company_button"
+							class="btn btn-primary" data-toggle="modal"
+							data-target="#log_off_company">取消公司绑定</button>
+					</div>
+
+					<div class="modal fade" id="apply_company" tabindex="-2"
+						role="dialog" aria-labelledby="myModalLabel">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									<h4 class="modal-title" id="myModalLabel">申请原因</h4>
+								</div>
+								<div class="modal-body">
+									<div class="aui-login-input">
+										申请原因： <input id="regist_company_reason" type="text"
+											placeholder="原因 ">
+									</div>
+									<div class="aui-login-input">
+										<span>公司名称：</span><input type="text" id="company_text" />
+										<div class="company_search">
+											<ul id="company_search_ul">
+
+											</ul>
+										</div>
+									</div>
+
+								</div>
+								<div class="modal-footer">
+									<button type="button" id="apply_company_close"
+										class="btn btn-default" data-dismiss="modal">关闭</button>
+									<button type="button" id="apply_company_btn"
+										class="btn btn-primary">确认并提交</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 取消公司绑定 -->
+					<div class="modal fade" id="log_off_company" tabindex="-2"
+						role="dialog" aria-labelledby="myModalLabel">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									<h4 class="modal-title" id="myModalLabel">取消绑定公司</h4>
+								</div>
+
+								<div class="modal-footer">
+									<button type="button" id="log_off_company_close"
+										class="btn btn-default" data-dismiss="modal">关闭</button>
+									<button type="button" id="log_off_company_btn"
+										class="btn btn-primary">确认并提交</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 添加公司 -->
+					<div class="modal fade" id="create_company" tabindex="-1"
+						role="dialog" aria-labelledby="myModalLabel">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									<h4 class="modal-title" id="myModalLabel">公司</h4>
+								</div>
+								<div class="modal-body">
+									<div class="aui-login-input">
+										公司名称 ： <input id="regist_company_name" type="text"
+											placeholder="公司名称">
+									</div>
+									<div class="aui-login-input">
+										公司邮箱 ： <input id="regist_company_email" type="text"
+											placeholder="公司邮箱">
+									</div>
+									<div class="aui-login-input">
+										公司地址 ： <input id="regist_company_address" type="text"
+											placeholder="公司地址">
+									</div>
+									<div class="aui-login-input">
+										公司电话 ： <input id="regist_company_tel" type="text"
+											placeholder="公司电话">
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" id="regist_company_close"
+										class="btn btn-default" data-dismiss="modal">关闭</button>
+									<button type="button" id="regist_company_btn"
+										class="btn btn-primary">确认并提交</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+
+
+					<!-- 消息弹出框 -->
+					<div class="modal fade" id="getMessageDetail" tabindex="-2"
+						role="dialog" aria-labelledby="myModalLabel">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									<h4 class="modal-title">消息详情:</h4>
+								</div>
+								<div class="modal-body">
+									<h4>申请人：</h4>
+									<h5 class="modal-title" id="message_user"></h5>
+								</div>
+								<div class="modal-body">
+									<h4>申请时间：</h4>
+									<h5 class="modal-title" id="message_time"></h5>
+								</div>
+								<div class="modal-body">
+									<h4>消息详情：</h4>
+									<h5 class="modal-title" id="message_label"></h5>
+								</div>
+
+								<div class="modal-footer">
+									<button type="button" id="send_message_close"
+										class="btn btn-default" data-dismiss="modal">关闭</button>
+									<button type="button" id="send_message_btn"
+										class="btn btn-primary">确认邀请加入公司</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<!-- END MAIN CONTENT -->
+	<!-- END MAIN 
+	<div class="clearfix"></div>
+	<footer>
+		<div class="container-fluid">
+			<p class="copyright">
+				Copyright&copy;2013-2016锐俤南京信息科技有限公司版权所有<br>热线电话：400-1199-780
+			</p>
+		</div>
+	</footer>
+	</div>-->
+	<!-- END WRAPPER -->
+	<!-- Javascript -->
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+
+	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="assets/scripts/klorofil-common.js"></script>
+
+</body>
+
+</html>

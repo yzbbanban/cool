@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.riti.cool.dao.MessageDAO">
+	<insert id="addMessage" parameterType="com.riti.cool.entity.UserMessage">
+		INSERT INTO cool_message (
+		cool_message_id ,
+		cool_company_id ,
+		cool_user_id ,
+		cool_message_handle_id ,
+		cool_message_detail,
+		cool_message_creat_time
+		)
+		VALUES (
+		#{id},
+		#{companyId},
+		#{userId},
+		#{handleId},
+		#{messageDetial},
+		#{createTime}
+		)
+
+	</insert>
+
+
+	<select id="getMessageListById" parameterType="string"
+		resultMap="getMessageUser">
+		SELECT
+		cool_message_id as id,
+		cool_company_id as companyId,
+		cool_user_id as userId,
+		cool_message_handle_id as handleId,
+		cool_message_detail as messageDetial,
+		cool_message_creat_time as
+		createTime
+		FROM
+		cool_message
+		WHERE cool_message_handle_id=#{id}
+	</select>
+	<resultMap type="com.riti.cool.entity.UserMessage" id="getMessageUser">
+		<id column="cool_message_id" property="id" />
+		<result column="cool_message_handle_id" property="handleId" />
+		<association property="user" javaType="com.riti.cool.entity.User"
+			select="getMessageUserDetail" column="userId"></association>
+	</resultMap>
+	<select id="getMessageUserDetail" parameterType="string"
+		resultType="com.riti.cool.entity.User">
+		SELECT
+		cool_user_id as id,
+		cool_commpany_id as companyId,
+		cool_user_name as name,
+		cool_user_password as password,
+		cool_user_token
+		as token,
+		cool_user_nick as nick,
+		cool_user_gender as gender,
+		cool_user_email as email,
+		cool_create_time as createTime,
+		cool_user_level as userLevel
+		FROM
+		cool_user
+		WHERE
+		cool_user_id = #{userId}
+
+	</select>
+
+
+	<delete id="deleteMessageById" parameterType="com.riti.cool.entity.UserMessage">
+		DELETE FROM
+		cool_message
+		WHERE
+		cool_user_id=#{userId}
+		AND
+		cool_company_id=#{companyId}
+	</delete>
+</mapper>
